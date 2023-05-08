@@ -10,6 +10,8 @@ private:
 	Player* player;
 	//World
 	Sprite WorldBackground;
+	//view
+	View view;
 	//font
 	Font font;
 	//Functions
@@ -17,6 +19,7 @@ private:
 	void initPlayer();
 	void initkeybinds();
 	void initTextures();
+	void initview();
 	void initWorldBackground();
 public:
 
@@ -26,6 +29,7 @@ public:
 	//Functions
 	void updateinput(const float& dt);
 	void updatePausedInput();
+	void updateView(const float& dt);
 	void update(const float& dt, RenderTarget* target = nullptr);
 	void render(RenderTarget* target = nullptr);
 

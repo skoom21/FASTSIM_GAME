@@ -73,6 +73,8 @@ void game::initwindow()
 	this->window->setVerticalSyncEnabled(veritcal_sync_enabled);
 }
 
+
+
 game::game()
 {
 	this->initvars();

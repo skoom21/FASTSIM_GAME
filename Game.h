@@ -14,6 +14,8 @@ private:
 	vector <VideoMode> videomodes;
 	ContextSettings window_settings;
 	bool fullscreen;
+
+	//Event
 	Event ev;
 	//states
 	stack <State*> states;
@@ -33,7 +35,6 @@ private:
 	void initenimies();
 	void initvars();
 	void initwindow();
-	
 public:
 	game();
 	~game();

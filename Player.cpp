@@ -23,7 +23,7 @@ void Player::initVariables()
 
 void Player::initComponents()
 {
-	this->createMovementComponent(100.f);
+	this->createMovementComponent(50.f);
 	this->initAnimationComponent();
 
 }

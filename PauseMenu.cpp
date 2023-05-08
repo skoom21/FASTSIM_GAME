@@ -12,9 +12,10 @@ PauseMenu::PauseMenu(RenderWindow& window, Font& font): font(font)
 	//innit text
 	this->menutext.setFont(font);
 	this->menutext.setString("PAUSED");
-	this->menutext.setCharacterSize(50);
+	this->menutext.setCharacterSize(60);
 	//set postion of the text to the mid top of the container
-	this->menutext.setPosition(Vector2f(this->container.getPosition().x + this->menutext.getGlobalBounds().width, this->container.getPosition().y + 40.f));
+	this->menutext.setPosition(Vector2f(this->container.getPosition().x + this->container.getSize().x / 2.f  - 75.f
+	,this->container.getPosition().y + 20.f));
 }
 
 PauseMenu::~PauseMenu()
@@ -23,6 +24,16 @@ PauseMenu::~PauseMenu()
 	{
 		delete i.second;
 	}
+}
+
+map<string, Button*>& PauseMenu::getbuttons()
+{
+	return this->buttons;
+}
+
+void PauseMenu::addbutton(const string key, float x, float y, const string text)
+{
+	this->buttons["Key"] = new Button(525, 185, 837, 198, Color(70, 70, 70, 200), Color(150, 150, 150, 255), Color(20, 20, 20, 200), &this->font, "Continue");
 }
 
 void PauseMenu::update(Vector2f& mouseposwindow)

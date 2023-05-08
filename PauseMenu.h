@@ -15,7 +15,7 @@ public:
 	//Accessors
 	map<string, Button*>& getbuttons();
 	//Functions
-	void addbutton(const string key, float y, const string text);
+	void addbutton(const string key, float x, float y, const string text);
 	void update(Vector2f& mouseposwindow);
 	void render(RenderTarget& target);
 };

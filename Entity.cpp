@@ -1,5 +1,10 @@
 #include "Entity.h"
 
+const Vector2f &Entity::getpos() const
+{
+	return this->sprite.getPosition();
+}
+
 const FloatRect Entity::getbounds() const
 {
 	return this->sprite.getGlobalBounds();
@@ -12,23 +17,28 @@ void Entity::setpos(const float x, const float y)
 
 void Entity::updateWindowBoundColision(RenderTarget* target)
 {
-	if (this->sprite.getPosition().x < 0.f)
+	//Left
+	if (this->getbounds().left < 0.f)
 	{
-		this->sprite.setPosition(0.f, this->sprite.getPosition().y);
+		this->setpos(0.f, this->getbounds().top);
 	}
-	else if (this->sprite.getPosition().x + this->sprite.getGlobalBounds().width > target->getSize().x)
+	//Right
+	else if (this->getbounds().left + this->getbounds().width > target->getSize().x)
 	{
-		this->sprite.setPosition(target->getSize().x - this->sprite.getGlobalBounds().width, this->sprite.getPosition().y);
+		this->setpos(target->getSize().x - this->getbounds().width, this->getbounds().top);
 	}
-	else if (this->sprite.getPosition().y < 0.f)
+	//Top
+	if (this->getbounds().top < 0.f)
 	{
-		this->sprite.setPosition(this->sprite.getPosition().x, 0.f);
+		this->setpos(this->getbounds().left, 0.f);
 	}
-	else if (this->sprite.getPosition().y + this->sprite.getGlobalBounds().height > target->getSize().y)
+	//Bottom
+	else if (this->getbounds().top + this->getbounds().height > target->getSize().y)
 	{
-		this->sprite.setPosition(this->sprite.getPosition().x, target->getSize().y - this->sprite.getGlobalBounds().height);
+		this->setpos(this->getbounds().left, target->getSize().y - this->getbounds().height);
 	}
 }
+
 
 void Entity::movement(const float& dt, float dir_x, float dir_y)
 {
@@ -71,7 +81,6 @@ Entity::Entity()
 
 Entity::~Entity()
 {
-	delete this->texture;
 	delete this->animation;
 	delete this->movementcomponent;
 }

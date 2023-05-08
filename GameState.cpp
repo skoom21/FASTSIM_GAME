@@ -51,6 +51,16 @@ void GameState::initWorldBackground()
 	this->WorldBackground.setTexture(this->textures["BACKGROUND"]);
 }
 
+void GameState::initview()
+{
+	//Float rect that stores the size of the view around the player
+	//view.setCenter(sf::Vector2f(player->getpos().x, player->getpos().y));
+	view.setSize(sf::Vector2f(455.f, 256.f));
+	//view.setCenter(sf::Vector2f(player->getpos().x, player->getpos().y));
+	this->window->setView(view);
+}
+
+
 GameState::GameState(RenderWindow* window, map<string, int>* supportedkeys, stack<State*>* states) :State(window, supportedkeys, states)
 {
 	this->pmenu = new PauseMenu(*this->window, this->font);
@@ -59,6 +69,7 @@ GameState::GameState(RenderWindow* window, map<string, int>* supportedkeys, stac
 	this->initTextures();
 	this->initPlayer();
 	this->initWorldBackground();
+	this->initview();
 }
 
 
@@ -104,6 +115,22 @@ void GameState::updatePausedInput()
 	}
 }
 
+void GameState::updateView(const float& dt)
+{
+	//updates the view to follow the player and keep it centered while also not going out of bounds
+	view.setCenter(this->player->getpos());
+	if (view.getCenter().x < view.getSize().x / 2.f)
+		view.setCenter(view.getSize().x / 2.f, view.getCenter().y);
+	if (view.getCenter().x + view.getSize().x / 2.f > this->WorldBackground.getGlobalBounds().width)
+		view.setCenter(this->WorldBackground.getGlobalBounds().width - view.getSize().x / 2.f, view.getCenter().y);
+	if (view.getCenter().y < view.getSize().y / 2.f)
+		view.setCenter(view.getCenter().x, view.getSize().y / 2.f);
+	if (view.getCenter().y + view.getSize().y / 2.f > this->WorldBackground.getGlobalBounds().height)
+		view.setCenter(view.getCenter().x, this->WorldBackground.getGlobalBounds().height - view.getSize().y / 2.f);
+	this->window->setView(view);
+
+}
+
 // void GameState::updateWindowBoundsCollision(RenderTarget* target)
 // {
 // 	//Left
@@ -138,10 +165,12 @@ void GameState::update(const float& dt, RenderTarget* target)
 	{
 		this->player->update(dt);
 		this->player->updateWindowBoundColision(target);
+		this->updateView(dt);
 	}
 	else
 	{
 		//Pause menu update
+
 		this->pmenu->update(mouseposview);
 	}
 }

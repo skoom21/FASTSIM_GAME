@@ -39,7 +39,8 @@ public:
 	virtual void setTexture(Texture& texture);
 	virtual void createMovementComponent(const float maxVelocity);
 	//Accessors
-	//virtual const Vector2f& getpos() const;
+	//virtual vector
+	virtual const Vector2f& getpos() const;
 	virtual const FloatRect getbounds() const;
 	//Modifiers
 	virtual void setpos(const float x, const float y);
