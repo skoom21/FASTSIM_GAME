@@ -35,6 +35,11 @@ void game::initvars()
 
 }
 
+void game::initview()
+{
+
+}
+
 void game::initwindow()
 {
 	//Creates an sfml window by using options from window.ini file

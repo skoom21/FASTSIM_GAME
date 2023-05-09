@@ -1,2 +1,53 @@
-﻿  GameState.cpp
-  ConsoleApplication2.vcxproj -> D:\C#\ConsoleApplication2\Debug\ConsoleApplication2.exe
+﻿  Animation.cpp
+D:\C#\ConsoleApplication2\ConsoleApplication2\Animation.cpp(10,22): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+D:\C#\ConsoleApplication2\ConsoleApplication2\Animation.cpp(11,41): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\C#\ConsoleApplication2\ConsoleApplication2\Animation.cpp(12,42): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Balls.cpp
+  Button.cpp
+  Entity.cpp
+  Game.cpp
+  GameState.cpp
+  Main.cpp
+  MainMenuState.cpp
+  MovementComponent.cpp
+  PauseMenu.cpp
+D:\C#\ConsoleApplication2\ConsoleApplication2\PauseMenu.cpp(6,72): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\C#\ConsoleApplication2\ConsoleApplication2\PauseMenu.cpp(6,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  Player.cpp
+  State.cpp
+  Tile_Map.cpp
+D:\C#\ConsoleApplication2\ConsoleApplication2\Tile_Map.cpp(6,18): error C2039: 'load': is not a member of 'std::vector<std::vector<int,std::allocator<int>>,std::allocator<std::vector<int,std::allocator<int>>>>'
+D:\C#\ConsoleApplication2\ConsoleApplication2\Tile_Map.h(13,2): message : see declaration of 'std::vector<std::vector<int,std::allocator<int>>,std::allocator<std::vector<int,std::allocator<int>>>>'
+D:\C#\ConsoleApplication2\ConsoleApplication2\Tile_Map.cpp(6,79): error C2065: 'tiles': undeclared identifier
+  View.cpp
+D:\C#\ConsoleApplication2\ConsoleApplication2\View.cpp(1,10): fatal  error C1083: Cannot open include file: 'View.h': No such file or directory
+  Running Code Analysis for C/C++...
+  Generating Code...

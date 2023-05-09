@@ -55,6 +55,8 @@ void Entity::updateAnimation(const float& dt,int row)
 }
 
 void Entity::update(const float& dt)
+
+
 {
 	if (this->movementcomponent)
 	{

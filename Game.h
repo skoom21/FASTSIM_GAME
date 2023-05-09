@@ -13,6 +13,8 @@ private:
 	VideoMode videomode;
 	vector <VideoMode> videomodes;
 	ContextSettings window_settings;
+	//View
+	View* view;
 	bool fullscreen;
 
 	//Event
@@ -34,6 +36,7 @@ private:
 	void initText();
 	void initenimies();
 	void initvars();
+	void initview();
 	void initwindow();
 public:
 	game();
